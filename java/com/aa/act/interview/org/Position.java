@@ -12,6 +12,7 @@ public class Position {
 	private Optional<Employee> employee;
 	private Set<Position> directReports;
 	
+	
 	public Position(String title) {
 		this.title = title;
 		employee = Optional.empty();
@@ -57,5 +58,14 @@ public class Position {
 	@Override
 	public String toString() {
 		return title + employee.map(e -> ": " + e.toString()).orElse("");
+	}
+	
+	/**
+	 * this is the implementation of the employee identification number 
+	 * I used the super.hashCode as a way quickly adding 
+	 * */
+	public int getId() {
+		return employee.get().getIdentifier();
+//		return this.employee.get().getIdentifier();
 	}
 }
